@@ -9,19 +9,19 @@ import (
 	"reflect"
 )
 
-type Command struct {
-	FuncName   string
-	Args       []interface{}
-	StatusChan libchan.Sender
-}
+const SERVER_ADDR = "127.0.0.1:9323"
 
-type Result struct {
-	Result []interface{}
-	Status int
-}
+type (
+	Command struct {
+		FuncName   string
+		Args       []interface{}
+		StatusChan libchan.Sender
+	}
 
-const (
-	SERVER_ADDR = "127.0.0.1:9323"
+	Result struct {
+		Result []interface{}
+		Status int
+	}
 )
 
 func (c Command) Sum(a, b int64) int64 {
